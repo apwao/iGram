@@ -36,3 +36,15 @@ class ImageTestClass(TestCase):
         self.image1.save_image()
         images=Image.objects.all()
         self.assertTrue(len(images)>0)
+        
+    def test_delete_image(self):
+        """
+        test_delete_image to check whether an instance of image
+        is successfully deleted from the database once it has been stored
+        """
+        self.image1.save_image()
+        self.image1.delete_image()
+        images=Image.objects.all()
+        self.assertTrue(len(images)<1)
+        
+    def test_update_image(self)
