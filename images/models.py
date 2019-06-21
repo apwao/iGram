@@ -15,7 +15,15 @@ class Image(models.Model):
     
     def save_image(self):
         """
-        test_save_image method to check whether an instance of image
+        save_image method to check whether an instance of image
         is successfully stored to the database
         """
         self.save()
+        
+    def delete_image(self):
+        """
+        delete_location method to remove an image from the database
+        """
+        self.delete()
+        
+    
