@@ -14,3 +14,9 @@ class Profile(models.Model):
         is successfully stored to the database
         """
         self.save()
+        
+    def delete_profile(self):
+        """
+        delete_profile method to remove a profile from the database
+        """
+        self.delete()
