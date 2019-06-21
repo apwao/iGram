@@ -30,4 +30,11 @@ class ProfileTestClass(TestCase):
         """
         self.assertTrue(isinstance(self.profile1,Profile))
         
-    
+    def test_save_profile(self):
+        """
+        test_save_image method to check whether an instance of image
+        is successfully stored to the database
+        """
+        self.profile1.save_profile()
+        profiles=Profile.objects.all()
+        self.assertTrue(len(profiles)>0)
