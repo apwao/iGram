@@ -7,3 +7,5 @@ class Profile(models.Model):
     """
     bio=models.TextField()
     profile_photo = models.ImageField(upload_to='profile_photos/', blank=True)
+    
+    
