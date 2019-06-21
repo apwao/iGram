@@ -32,9 +32,19 @@ class ProfileTestClass(TestCase):
         
     def test_save_profile(self):
         """
-        test_save_image method to check whether an instance of image
+        test_save_profile method to check whether an instance of profile
         is successfully stored to the database
         """
         self.profile1.save_profile()
         profiles=Profile.objects.all()
         self.assertTrue(len(profiles)>0)
+        
+    def test_delete_profile(self):
+        """
+        test_delete_profile to check whether an instance of profile
+        is successfully deleted from the database once it has been stored
+        """
+        self.profile1.save_profile()
+        self.profile1.delete_profile()
+        profiles=Profile.objects.all()
+        self.assertTrue(len(profiles)<1)
