@@ -47,4 +47,11 @@ class ImageTestClass(TestCase):
         images=Image.objects.all()
         self.assertTrue(len(images)<1)
         
-    def test_update_image(self)
+    def test_update_image(self):
+        """
+        test_update method to check for the successful replacement of
+        an image in the database with a new image
+        """
+        self.image1.save_image()
+        toUpdate=Image.objects.filter(image_name='image1').update(image_name="image2")
+        self.assertEquals(toUpdate,1)
