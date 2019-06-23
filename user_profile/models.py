@@ -20,3 +20,9 @@ class Profile(models.Model):
         delete_profile method to remove a profile from the database
         """
         self.delete()
+        
+    def update_profile(self):
+        """
+        update_profile method to replace a profile and its details in the database
+        """
+        self.update()
