@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -498,7 +499,8 @@ opacity: 1;
 }
     </style>
     <div class="navbar">
-           <a href='#'><i class="fa fa-instagram"></i><span></span></a></div>
+        <a href='#'><i class="fa fa-instagram"></i><span></span></a>
+    </div>
         <div class='lil-bar'>
             <div class='bar-cont'>
                 <a href='#' role="button"><i class="fa fa-user-plus"></i></a>
@@ -515,6 +517,7 @@ opacity: 1;
             </ul>
         </div>
     <section>
+        {% for image in images %}
       <div class= 'insta fade-scroll'>
         <div class='top-insta'>
           <a href='https://goo.gl/Y9YWLo' target='_blank'><img src='https://goo.gl/rN1DcT'></a>
@@ -526,7 +529,8 @@ opacity: 1;
             <div class="overlay">
             <span></span>
             </div>
-          <img src='https://goo.gl/ZUpXiB' >
+          <img src='{{image.image.url}}' >
+          <p>{{image.image_name}}</p>
      </div>
         <div class='footer'>
           
@@ -538,7 +542,8 @@ opacity: 1;
           </div>
           
           <div class='caption'>
-            <a href='#'>uncle_oreo</a><span>Done Safe and Sound</span>
+            <a href='#'></a><span>{{image.caption}}</span>
+            <p>Posted {{image.upload_date|timesince}} ago by {{image.editor}}</p>
           </div>
           
           <div class='comment-section'>
@@ -554,6 +559,7 @@ opacity: 1;
       <div class="a1 fade-scroll"></div>
       <div class="a1 fade-scroll"></div>
       <div class="a1 fade-scroll"></div>
+      {% endfor %}
     </section> <!-- end section -->
         <footer>
         <div class="footer-cont">
@@ -571,6 +577,7 @@ opacity: 1;
             <span class='copyright'>© 2017 INSTAGRAM</span>
             </div>
         </footer>
+        
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </body>
