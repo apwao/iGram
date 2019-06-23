@@ -48,3 +48,12 @@ class ProfileTestClass(TestCase):
         self.profile1.delete_profile()
         profiles=Profile.objects.all()
         self.assertTrue(len(profiles)<1)
+        
+    def test_update_profile(self):
+        """
+        test_update_profile method to check for the successful replacement of
+        a profile in the database with a new profile
+        """
+        self.profile1.save_profile()
+        toUpdate=Profile.objects.filter(bio='Amazing').update(bio="Bleeeh")
+        self.assertEquals(toUpdate,1)
