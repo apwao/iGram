@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'bootstrap3',
     'images',
     'user_profile',
-    'tinymce'
+    'tinymce',
+    
 ]
 
 MIDDLEWARE = [
@@ -67,7 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.media'
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -124,13 +125,13 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR, 'static'),
 ]
-MEDIA_URL ='/media/'
-MEDIA_ROOT=os.path.join(BASE_DIR, 'media')
 
 
 ACCOUNT_ACTIVATION_DAYS = 7
@@ -140,3 +141,4 @@ EMAIL_HOST_USER='pasowayi@gmail.com'
 EMAIL_HOST_PASSWORD='40A79jkL3B2i'
 EMAIL_PORT=587
 
+LOGIN_REDIRECT_URL = '/timeline/view_posts'
