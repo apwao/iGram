@@ -3,8 +3,10 @@ from django.http  import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .forms import ProfileForm
 from .models import Profile
+from images.models import Image
 
 # Create your views here.
+@login_required(login_url='/accounts/login/')
 def create_profile(request):
     """
     """
@@ -20,8 +22,12 @@ def create_profile(request):
         form=ProfileForm()
     return render(request, 'profile_form.html',{'form':form})
 
-
+@login_required(login_url='/accounts/login/')
 def view_profile(request):
+    print(request)
     """
     """
-    return render(request, 'profile.html')
+    current_user=request.user
+    profile_photos=Profile.objects.filter()
+    all_user_photos=Image.objects.filter(editor=current_user.id)
+    return render(request, 'profile.html',{'profile_photos':profile_photos})
