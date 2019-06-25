@@ -15,7 +15,7 @@ class Image(models.Model):
     image_caption=models.TextField()
     comments=models.TextField()
     likes=models.IntegerField(default=0)
-    # editor=models.ForeignKey(User,on_delete=models.CASCADE, default=0)
+    editor=models.IntegerField(default=0)
     upload_date=models.DateTimeField(auto_now_add=True)
     
     
@@ -40,11 +40,4 @@ class Image(models.Model):
         
     def __str__(self):
         return self.name
-    
-# class Profile(models.Model):
-#     """
-#     Class Profile to create a profile instance containing an image 
-#     and bio
-#     """
-#     profile_photo=image=models.ImageField(upload_to = 'timeline/')
     
