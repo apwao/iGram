@@ -19,7 +19,7 @@ This is an instagram application made for the web. It mimics the functionalities
 |User logs in                  | Clicks log in              | Redirects user to timeline
 |User uploads image            | Clicks save on profile form| Image displayed on their profile
 |User creates a post           | Submits post form          | Adds a post in their timeline
-|User Adds an image            | Creates image in Admin     | Adds the image to the database
+|User Adds an image            | Uploads Image to database  | Adds the image to the database
 ## Setup/Installation Requirements
 * Ensure git is intalled in your computer
 * Use 'git clone' command to Clone and then unzip the repository from github, https://github.com/apwao/iGram.git
