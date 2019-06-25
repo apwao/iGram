@@ -1,3 +1,4 @@
+<!-- {% load static %} -->
 {% load bootstrap3 %}
 <!DOCTYPE html>
 <html lang="en">
@@ -7,15 +8,29 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Create_profile</title>
     {{form.media}}
+
 </head>
-<body> 
-    {% block content %}
-    <h1>profile form</h1>
-    <form action="{% url 'view_profile' %}" method ='post' enctype='multipart/form-data'>
-        {% csrf_token %}
-        {% bootstrap_form form layout='inline'%}
-        <input type="submit" class="btn btn-success btn-lg" value="Save">
-    </form>
+<body>
+    {% block styles %}
+    {% bootstrap_css %}
     {% endblock %}
+    
+    <div class="container">
+        <div class="card mt-5">
+            <div class="card-body">
+                <h1 class="text_center">Create profile</h1>
+                <form action="{% url 'create_profile' %}" method ='post' enctype='multipart/form-data'>
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    <input type="submit" class="btn btn-success btn-lg" value="Save">
+                </form>
+            </div>
+        </div>
+    </div>
+    {% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    {% bootstrap_javascript %}
+    {% endblock %}
+
 </body>
 </html>
