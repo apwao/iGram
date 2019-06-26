@@ -41,3 +41,15 @@ class Image(models.Model):
     def __str__(self):
         return self.name
     
+class Comment(models.Model):
+    """
+    Class Comment to help user create a comment
+    """
+    comment=models.TextField()
+    image_id=models.IntegerField(default=1)
+    
+class Followers(models.Model):
+    """
+    """
+    to_follow_id=models.IntegerField(default=0)
+    user_id=models.IntegerField(default=0)

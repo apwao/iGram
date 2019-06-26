@@ -53,7 +53,7 @@ def signup(request):
            user.is_active = False          # If the user doesn't own an account yet, add them to the database
            user.save()                      
            current_site = get_current_site(request)     # gets the domain name and human-readable name for a specific website
-           mail_subject = 'Activate your blog account.' # subject for the account activation email to be sent to user
+           mail_subject = 'Activate your Instagram account.' # subject for the account activation email to be sent to user
            message = render_to_string('acc_active_email.html', {
                'user': user,
                'domain': current_site.domain,

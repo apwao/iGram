@@ -9,4 +9,3 @@ class ImageForm(forms.ModelForm):
     class Meta:
         model=Image
         exclude=['editor','upload_date','likes','comments']
-        

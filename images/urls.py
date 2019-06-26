@@ -8,7 +8,13 @@ from . import views
 #..............
 
 urlpatterns=[
-    url('^create_post/$', views.new_post, name='create_post'),
-    url('^view_posts/$', views.timeline_images, name='view_posts'),
-    url('^add_comment/$',views.add_comment, name='add_comment')
+    url(r'^create_post/$', views.new_post, name='create_post'),
+    url(r'^$', views.timeline_images, name='view_posts'),
+    url(r'^add_comment/(\d+)/$',views.add_comment, name='add_comment'),
+    url(r'^search_user/$', views.search_user, name='search_user'),
+    url(r'^like_post/(\d+)$', views.like_post, name="like_post" ),
+    url(r'^follow/(\d+)/$',views.follow, name='follow'),
+    url(r'^view_suggestions/$',views.view_suggestions, name='view_suggestions'),
 ]
+
+
