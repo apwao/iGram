@@ -36,7 +36,7 @@ def create_profile(request):
                 
             # else:
             created_profile = form.save(commit=False)
-            created_profile.user_profile_photo = current_user.id
+            created_profile.user_id = current_user.id
             created_profile.save()
                 
         return redirect('view_profile')
@@ -51,7 +51,10 @@ def view_profile(request):
     """
     """
     current_user=request.user
-    profile_photos=Profile.objects.filter(id=current_user.id)
+    print('-' * 30)
+    print(current_user.id)
+    profile_photos=Profile.objects.filter(user_id=current_user.id)
+    print(profile_photos)
     all_user_photos=Image.objects.filter(editor=current_user.id)
     return render(request, 'profile.html',{'profile_photos':profile_photos})
 

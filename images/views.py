@@ -7,7 +7,7 @@ from user_profile.models import Profile
 from django.contrib.auth.models import User
 
 # Create your views here.
-# @login_required
+@login_required(login_url='/accounts/login')
 def timeline_images(request):
     """
     timeline_images view function to display uploaded images on the timeline
@@ -15,7 +15,12 @@ def timeline_images(request):
     current_user=request.user
     images = Image.objects.all()
     all_comments=Comment.objects.all()
-    profile_photo=Profile.objects.get(id=current_user.id)
+    try:
+        
+        profile_photo=Profile.objects.get(user_id=current_user.id)
+    except:
+        profile_photo = [1, 2, 3]
+        print("Error occured")
     user_name=current_user.username
     all_users = User.objects.all()
     
@@ -23,7 +28,7 @@ def timeline_images(request):
     
     return render(request, 'timeline.html', {'images':images ,'all_comments':all_comments, 'all_users':all_users ,"profile_photo":profile_photo, "user_name":user_name, "all_followed":all_followed})
 
-# @login_required(login_url='/accounts/login')
+@login_required(login_url='/accounts/login')
 def new_post(request):
     """
     new_post function to display the image_upload form
@@ -66,7 +71,7 @@ def search_user(request):
         #    print(i.id)
            user_id = i.id
     #    print(type(user_id))
-       profile_search_info = Profile.objects.filter(user_profile_photo=user_id)
+       profile_search_info = Profile.objects.filter(user_id=user_id)
        
     #    for i in profile_search_info:
     #        print(i.bio)
@@ -111,5 +116,6 @@ def view_suggestions(request):
     """
     images=Image.objects.all()
     current_user = request.user.id
+    all_users = User.objects.all()
     
-    return render(request, 'suggestions.html',{"images":images})
+    return render(request, 'suggestions.html',{"images":images, 'all_users':all_users})

@@ -7,7 +7,7 @@ class Profile(models.Model):
     """
     bio=models.TextField()
     profile_photo = models.ImageField(upload_to='profile_photos/', blank=True)
-    user_profile_photo = models.IntegerField(default=0)
+    user_id = models.IntegerField(default=0)
     
     def save_profile(self):
         """

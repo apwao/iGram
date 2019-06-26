@@ -8,4 +8,4 @@ class ProfileForm(forms.ModelForm):
     """
     class Meta:
         model=Profile
-        exclude=['user_profile_photo']
+        exclude=['user_id']
