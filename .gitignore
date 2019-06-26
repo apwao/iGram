@@ -2,3 +2,5 @@ virtual/
 .vscode/
 *.pyc
 .env
+iGram/backup.sett.py
+iGram/backupsettings2.py
