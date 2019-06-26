@@ -53,7 +53,7 @@ def signup(request):
            user = form.save(commit=False) # save form but don't commit it to the database yet
            user.is_active = True          # If the user doesn't own an account yet, add them to the database
            user.save()   
-           return redirect(timeline_images)                  
+           return render(request, 'activate.html')                  
         #    current_site = get_current_site(request)     # gets the domain name and human-readable name for a specific website
         #    mail_subject = 'Activate your Instagram account.' # subject for the account activation email to be sent to user
         #    message = render_to_string('acc_active_email.html', {
