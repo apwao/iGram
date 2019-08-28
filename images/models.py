@@ -39,7 +39,7 @@ class Image(models.Model):
         self.update()
         
     def __str__(self):
-        return self.name
+        return self.image_name
     
 class Comment(models.Model):
     """
